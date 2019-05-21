@@ -1,17 +1,18 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Due.Models.Database
 {
-  [Table("user")]
-  public class User : BaseEntity
-  {
-    [Column("FirstName")]
-    public string FirstName { get; set; }
+    [Table("User")]
+    public class User : BaseEntity
+    {
+        [Column("FirstName")]
+        public string FirstName { get; set; }
 
-    [Column("LastName")]
-    public string LastName { get; set; }
+        [Column("LastName")]
+        public string LastName { get; set; }
 
-    [Column("Email")]
-    public string Email { get; set; }
-  }
+        [Column("Email")]
+        public string Email { get; set; }
+    }
 }
