@@ -9,6 +9,8 @@ using Due.Models.Database;
 
 namespace Due.Controllers
 {
+    [Route("/[controller]/api/v1/")]
+    [Route("/[controller]")]
     public class TodoController : Controller
     {
         private readonly DatabaseContext _context;
@@ -16,16 +18,25 @@ namespace Due.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+
+        /// <summary>
+        /// This is the route for creating a new todo. The UI can use the pretty URI `/todo/new` while the backend API can use the versioned URI `/todo/api/v1/new`
+        /// </summary>
+        /// <param name="todo"></param>
+        /// <returns></returns>
+        [HttpPost("new")]
+        public string New([FromBody] Todo todo)
         {
-            User testUser = new User("b", "b", "b@example.com");
-            _context.Add(testUser);
-            _context.SaveChanges();
-            Todo todo = new Todo("test2", "this is a test");
-            todo.User = testUser;
             _context.Add(todo);
             _context.SaveChanges();
+            return "Saved!";
+        }
+
+        [HttpGet("new")]
+        public IActionResult New()
+        {
             return View();
         }
+
     }
 }

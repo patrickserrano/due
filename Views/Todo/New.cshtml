@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Todo";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Todo</h1>
+    <p>Want to create a new todo?</p>
+    <form id="newTodo" action="/todo/new" method="POST">
+        <div>
+            <label>Title</label>
+            <input type="text" name="todoTitle"/>
+        </div>
+        <div>
+            <label>Details</label>
+            <input type="text" name="todoDetail" />
+        </div>
+        <button id="todoSubmit" type="submit">Submit</button>
+    </form>
+</div>
