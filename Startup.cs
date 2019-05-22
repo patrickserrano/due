@@ -30,7 +30,6 @@ namespace Due
                                  User,
                                  Password);
         }
-
     }
     public class Startup
     {
@@ -63,8 +62,6 @@ namespace Due
             };
 
             string connectionString = builder.BuildConnectionString();
-
-            Console.WriteLine($"string {connectionString}");
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

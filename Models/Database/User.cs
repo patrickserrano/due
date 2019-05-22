@@ -14,5 +14,11 @@ namespace Due.Models.Database
 
         [Column("Email")]
         public string Email { get; set; }
+        public User(string firstName, string lastName, string email)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+        }
     }
 }
